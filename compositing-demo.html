@@ -63,5 +63,23 @@
 
   </a-scene>
 </body>
+<script>
+        // this makes the same camera rig setup work in VR and desktop modes
+      // this could be a new component, such as "swap desktop and vr controls" and put in init section
+      window.addEventListener("DOMContentLoaded", function() {
+        const sceneEl = document.querySelector("a-scene");
+        sceneEl.addEventListener("enter-vr", function() {
+          document.querySelector('#cameraRig').removeAttribute('look-controls')
+          document.querySelector('#cameraRig').removeAttribute('wasd-controls')
+          // document.querySelector('#cameraRig').removeAttribute('cursor-teleport')
+          document.querySelector('#cameraRig').setAttribute('position', '0 0 0')
+        });
+        sceneEl.addEventListener("exit-vr", function() {
+          // document.querySelector('#cameraRig').setAttribute('cursor-teleport', "cameraRig: #cameraRig; cameraHead: #camera;")
+          document.querySelector('#cameraRig').setAttribute('look-controls', "reverseMouseDrag: true;")
+          document.querySelector('#cameraRig').setAttribute('wasd-controls', "enabled: true")
+        });
+      })
+      </script>
 
 </html>
