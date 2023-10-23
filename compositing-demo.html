@@ -11,14 +11,15 @@
 <html>
 
 <head>
-  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <!-- <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@4da83614ad2591a0ac4e7ea191093ba1efeb3b8c/dist/aframe-master.min.js"></script>
   <script src="./index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls@0.4.3/dist/aframe-blink-controls.min.js"></script>
 
 </head>
 
 <body>
-  <a-scene renderer="antialias: false; sortObjects: false;" stats>
+  <a-scene renderer="antialias: false; sortObjects: false; multiviewStereo: true;" stats>
     <a-entity position="0 1.6 -4.0" animation="property: rotation; to: 0 360 0; dur: 10000; easing: linear; loop: true">
       <a-sphere position="0 0 0.5" radius="0.5" color="#EF2D5E"></a-sphere>
       <a-sphere position="0 0 -0.5" radius="0.5" color="#EF2D5E"></a-sphere>
