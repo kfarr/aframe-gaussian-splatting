@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Racing + Splats!</title>
+
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+  <script src="./index.js"></script>
+  <script src="./vehicle-controls.js"></script>
+  <script src="./orbit-camera.js"></script>
+</head>
+
+<body>
+  <a-scene
+    physics="debug: true; debugDrawMode: 1;"
+    gltf-model="dracoDecoderPath:https://www.gstatic.com/draco/versioned/decoders/1.5.6/;basisTranscoderPath:https://cdn.jsdelivr.net/npm/three@0.154.0/examples/jsm/libs/basis/"
+    renderer="sortObjects: true;physicallyCorrectLights:true;colorManagement:true" shadow="type: pcfsoft" reflection>
+    <a-assets>
+      <!-- Templates -->
+      <a-asset-item id="chassisModel"
+        src="https://cdn.jsdelivr.net/gh/pmndrs/racing-game@7816a5d954b75e6ad853ae4e4f0cbbd628072643/public/models/chassis-draco.glb"></a-asset-item>
+    </a-assets>
+    <a-entity gaussian_splatting="src: ./mission_creek_bay_full.splat;"
+      rotation="0 0 0" position="0 5 -2" scale="50 50 50"></a-entity>
+
+    <a-entity shadow position="-56 1 -2.5" rotation="0 90 0" vehicle-controls>
+      <a-entity gltf-model="#chassisModel" position="0 0.135 0" scale="0.25 0.25 0.25"></a-entity>
+      <a-entity id="selfie-stick" orbit-camera="startingPitch: -30; startingYRotation: 91">
+        <a-entity id="camera-rig" position="0 0 4">
+          <a-entity camera></a-entity>
+        </a-entity>
+      </a-entity>
+    </a-entity>
+    <a-entity light="type:ambient;intensity:0.5"></a-entity>
+  </a-scene>
+
+  <script>
+    // Called by Networked-Aframe when connected to server
+    function onConnect() {
+      console.log("onConnect", new Date());
+    }
+  </script>
+</body>
+
+</html>
