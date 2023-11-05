@@ -1,4 +1,14 @@
-## aframe-gaussian-splatting-component
+## (fork of) aframe-gaussian-splatting
+
+This is a fork of quadjr's a-frame gaussian splatting viewer component to play with some new ideas. I commit lots of junk in this repo that you probably don't want, so use the original repo for the splatting component: https://github.com/quadjr/aframe-gaussian-splatting
+
+Branches of my WIP experiments:
+* Compositing prototype: https://github.com/kfarr/aframe-gaussian-splatting/tree/splat-compositing
+* barely working RC car prototype: https://github.com/kfarr/aframe-gaussian-splatting/tree/barely-working-driving 
+
+****
+
+## normal readme
 
 This component is an A-Frame implementation of real-time rendering for [3D Gaussian Splatting for Real-Time Radiance Field Rendering](https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/).  
 This code is derived from the WebGL implementation developed by [antimatter15](https://github.com/antimatter15/splat).
